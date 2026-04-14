@@ -64,15 +64,15 @@ def get_category(title):
 
 def grab_top_ids():
     """Get top 500 story IDs from HN."""
-    print("🔥 Grabbing top 500 story IDs...")
+    print(" Grabbing top 500 story IDs...")
     try:
         r = requests.get(TOP_URL, headers=HEADERS, timeout=15)
         r.raise_for_status()
         ids = r.json()
-        print(f"✅ Got {len(ids)} IDs, taking first 500")
+        print(f" Got {len(ids)} IDs, taking first 500")
         return ids[:500]
     except Exception as e:
-        print(f"💥 ERROR getting IDs: {e}")
+        print(f" ERROR getting IDs: {e}")
         return []
 
 def get_story(story_id):
@@ -83,12 +83,12 @@ def get_story(story_id):
         r.raise_for_status()
         return r.json()
     except:
-        print(f"⚠️  Skip story {story_id} - failed")
+        print(f"  Skip story {story_id} - failed")
         return None
 
 def collect_all_stories(top_ids):
     """Main collection loop. Stop at 25 per category."""
-    print("📊 Fetching stories...")
+    print(" Fetching stories...")
     
     stories = []
     counts = {
@@ -127,7 +127,7 @@ def collect_all_stories(top_ids):
             if len(stories) % 20 == 0:
                 print(f"   Got {len(stories)} stories so far...")
     
-    print("✅ Collection done!")
+    print(" Collection done!")
     return stories
 
 def save_json(stories):
@@ -153,18 +153,18 @@ def save_json(stories):
 
 # MAIN
 if __name__ == "__main__":
-    print("🚀 TrendPulse Task 1 - Let's collect some HN trends!")
+    print(" TrendPulse Task 1 - Let's collect some HN trends!")
     print("=" * 50)
     
     ids = grab_top_ids()
     if not ids:
-        print("😞 No story IDs. Check internet?")
+        print(" No story IDs. Check internet?")
         exit(1)
     
     stories = collect_all_stories(ids)
     
     if stories:
         save_json(stories)
-        print("\n✅ Task 1 COMPLETE! Ready for Task 2!")
+        print("\n Task 1 COMPLETE! Ready for Task 2!")
     else:
-        print("😢 No stories collected. Try again?")
+        print("No stories collected. Try again?")
