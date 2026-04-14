@@ -146,7 +146,7 @@ def save_json(stories):
         cat = s['category']
         cat_count[cat] = cat_count.get(cat, 0) + 1
     
-    print(f"\n🎉 SAVED {len(stories)} stories to {filename}")
+    print(f"\n SAVED {len(stories)} stories to {filename}")
     print("Breakdown:")
     for cat, num in cat_count.items():
         print(f"  {cat}: {num}")
