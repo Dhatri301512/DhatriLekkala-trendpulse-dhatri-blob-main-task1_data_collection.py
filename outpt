@@ -1,0 +1,22 @@
+my output in colab
+
+TrendPulse Task 1 - Let's collect some HN trends!
+==================================================
+ Grabbing top 500 story IDs...
+ Got 500 IDs, taking first 500
+ Fetching stories...
+   Got 20 stories so far...
+   Got 40 stories so far...
+   Got 60 stories so far...
+   Got 80 stories so far...
+ Collection done!
+
+ SAVED 83 stories to data/trends_20260414.json
+Breakdown:
+  sports: 13
+  technology: 25
+  entertainment: 25
+  worldnews: 13
+  science: 7
+
+ Task 1 COMPLETE! Ready for Task 2!
